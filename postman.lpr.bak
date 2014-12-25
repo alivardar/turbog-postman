@@ -1,0 +1,20 @@
+program postman;
+
+{$mode objfpc}{$H+}
+
+uses
+  {$IFDEF UNIX}{$IFDEF UseCThreads}
+  cthreads,
+  {$ENDIF}{$ENDIF}
+  Interfaces, // this includes the LCL widgetset
+  Forms
+  { add your units here }, unit1, smtpset, aboutscreen;
+
+begin
+  Application.Title:='Postman';
+  Application.Initialize;
+  Application.CreateForm(Tmainform, mainform);
+  Application.CreateForm(Tabout, about);
+  Application.Run;
+end.
+

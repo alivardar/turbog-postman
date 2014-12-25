@@ -1,0 +1,268 @@
+unit unit1;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, Menus,
+  ComCtrls, StdCtrls, ExtCtrls, smtpsend, mimemess, mimepart, SynaChar,
+  EditBtn, Buttons, logscreen, smtpset, synautil, aboutscreen;
+
+type
+
+  { Tmainform }
+
+  Tmainform = class(TForm)
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    ImageList1: TImageList;
+    Label1: TLabel;
+    MainMenu1: TMainMenu;
+    Memo1: TMemo;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
+    MenuItem7: TMenuItem;
+    MenuItem8: TMenuItem;
+    OpenDialog1: TOpenDialog;
+    RadioGroup1: TRadioGroup;
+    StatusBar1: TStatusBar;
+    Timer1: TTimer;
+    ToolBar1: TToolBar;
+    ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
+    ToolButton5: TToolButton;
+    ToolButton6: TToolButton;
+     procedure BitBtn1Click(Sender: TObject);
+     procedure BitBtn2Click(Sender: TObject);
+     procedure FormCreate(Sender: TObject);
+     procedure MenuItem4Click(Sender: TObject);
+     procedure MenuItem5Click(Sender: TObject);
+     procedure MenuItem6Click(Sender: TObject);
+     procedure MenuItem8Click(Sender: TObject);
+     procedure Timer1Timer(Sender: TObject);
+     procedure ToolButton1Click(Sender: TObject);
+     procedure ToolButton2Click(Sender: TObject);
+     procedure ToolButton3Click(Sender: TObject);
+     procedure ToolButton5Click(Sender: TObject);
+     procedure ToolButton6Click(Sender: TObject);
+     procedure readconfig;
+     procedure logwrite(mesaj: String);
+
+
+  private
+  
+  public
+    { public declarations }
+  end; 
+
+var
+  mainform: Tmainform;
+  username, password, smtpserver, portnumber, waitsecond, mailfrom: String;
+
+implementation
+
+{ Tmainform }
+
+procedure Tmainform.logwrite(mesaj: String);
+var
+dosya : TextFile;
+begin
+
+     try
+     AssignFile (dosya, 'logs/log');
+     Append(dosya);
+     WriteLn(dosya, mesaj);
+     CloseFile(dosya);
+     except
+       ShowMessage('Can not write to log file');
+     end;
+
+end;
+
+
+procedure Tmainform.readconfig;
+var
+okunan, degvar : String;
+dosya : TextFile;
+begin
+
+     try
+     AssignFile (dosya, 'conf/config');
+     Reset(dosya);
+     repeat
+       ReadLn(dosya, okunan);
+       degvar:=Trim(SeparateLeft(okunan, '='));
+       //case not supported strings
+          if degvar='username' then username:=Trim(SeparateRight(okunan, '='));
+          if degvar='password' then password:=Trim(SeparateRight(okunan, '='));
+          if degvar='server'   then smtpserver:=Trim(SeparateRight(okunan, '='));
+          if degvar='sport' then portnumber:=Trim(SeparateRight(okunan, '='));
+          if degvar='wait' then waitsecond:=Trim(SeparateRight(okunan, '='));
+          if degvar='mailfrom' then mailfrom:=Trim(SeparateRight(okunan, '='));
+     until eof(dosya);
+     CloseFile(dosya);
+     except
+       ShowMessage('Can not read configuration file');
+     end;
+     
+end;
+
+
+procedure Tmainform.ToolButton1Click(Sender: TObject);
+ var
+ StrList:TStringList;
+ SMTPHost,
+ MailTo,Subject, MailToWho, okunan:String;
+ AttachMess:TMimeMess;
+ sayi:Integer;
+ dosya:TextFile;
+ mailicerik:String;
+ 
+begin
+
+   StatusBar1.SimpleText:='Sending ...';
+   mainform.Repaint;
+
+   if (Edit1.Text='') then begin showmessage('You must select a list file.');exit; end;
+
+   readconfig;
+   Subject:=Edit3.Text;
+   SMTPHost:=smtpserver+':'+portnumber;
+  
+    AssignFile (dosya, Edit1.Text);
+    reset(dosya);
+
+    repeat
+    
+    StrList:=TStringList.Create;
+    AttachMess:=TMimeMess.Create;
+
+    ReadLn(dosya, okunan);
+    MailTo:= Trim( SeparateLeft(okunan, ',') );
+    MailToWho:= Trim( SeparateRight(okunan, ',') );
+
+    StatusBar1.SimpleText := MailTo;
+    mainform.Repaint;
+
+    mailicerik := ReplaceString(Memo1.Lines.Text, '[mydearsign]', MailToWho);
+    StrList.Add(mailicerik);
+
+    AttachMess.Header.From:=MailFrom;
+    AttachMess.Header.Subject:=Subject;
+    AttachMess.Header.XMailer:='Postman M.Ali VARDAR 2007';
+    AttachMess.Header.CustomHeaders.Add('Content-type: Multipart/related;; boundary="boundary-example-1"');
+    AttachMess.AddPartMultipart('', Nil);
+
+    //html veya text mesaj
+    if RadioGroup1.ItemIndex=0 then AttachMess.AddPartHTML(StrList, AttachMess.MessagePart)
+    else AttachMess.AddPartText(StrList,AttachMess.MessagePart);
+
+    //attach icinde bir sey varsa gonder
+    if Edit2.Text<>'' then AttachMess.AddPartBinaryFromFile(Edit2.Text, AttachMess.MessagePart);
+
+    AttachMess.EncodeMessage;
+    Application.ProcessMessages;
+    if Not SendToRaw(MailFrom, MailTo, SMTPHost, AttachMess.Lines, username, password) then  logwrite ('Error : '+Trim(MailTo));
+
+    if StrList<>Nil then FreeAndNil(StrList);
+    if AttachMess<>Nil then FreeAndNil(AttachMess);
+    
+    until eof(dosya);
+    
+    CloseFile (dosya);
+
+    Showmessage('All mails sended. You can see logs for more information.');
+
+end;
+
+procedure Tmainform.ToolButton2Click(Sender: TObject);
+begin
+  Application.CreateForm(Tsmtpsettings, smtpsettings);
+  smtpsettings.Showmodal;
+end;
+
+procedure Tmainform.ToolButton3Click(Sender: TObject);
+begin
+  Application.CreateForm(Tlogscreen, logscreenunit);
+  logscreenunit.Showmodal;
+end;
+
+procedure Tmainform.ToolButton5Click(Sender: TObject);
+begin
+   Memo1.Lines.Insert(0, '[mydearsign]');
+end;
+
+procedure Tmainform.ToolButton6Click(Sender: TObject);
+begin
+  Application.Terminate;
+end;
+
+procedure Tmainform.BitBtn1Click(Sender: TObject);
+begin
+ OpenDialog1.Filter:='*.*|*.*';
+ if (OpenDialog1.Execute) then
+ Edit1.Text:= OpenDialog1.FileName;
+end;
+
+procedure Tmainform.BitBtn2Click(Sender: TObject);
+begin
+ OpenDialog1.Filter:='';
+ if ( OpenDialog1.Execute ) then
+ Edit2.Text:= OpenDialog1.FileName;
+end;
+
+procedure Tmainform.FormCreate(Sender: TObject);
+begin
+
+end;
+
+procedure Tmainform.MenuItem4Click(Sender: TObject);
+begin
+   Application.Terminate;
+end;
+
+procedure Tmainform.MenuItem5Click(Sender: TObject);
+begin
+     Application.CreateForm(Tsmtpsettings, smtpsettings);
+     smtpsettings.Show;
+end;
+
+procedure Tmainform.MenuItem6Click(Sender: TObject);
+begin
+     Application.CreateForm(Tabout, about);
+     about.Showmodal;
+end;
+
+procedure Tmainform.MenuItem8Click(Sender: TObject);
+begin
+     Application.CreateForm(Tlogscreen, logscreenunit);
+     logscreenunit.Showmodal;
+end;
+
+procedure Tmainform.Timer1Timer(Sender: TObject);
+begin
+     Application.ProcessMessages;
+end;
+
+
+
+
+
+initialization
+{$I unit1.lrs}
+
+end.
+
+
+
+

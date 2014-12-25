@@ -1,0 +1,128 @@
+object smtpsettings: Tsmtpsettings
+  Left = 346
+  Height = 215
+  Top = 393
+  Width = 400
+  ActiveControl = Edit1
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Settings'
+  ClientHeight = 215
+  ClientWidth = 400
+  OnShow = FormShow
+  ParentFont = False
+  Position = poDesktopCenter
+  LCLVersion = '0.9.26.1'
+  object Label1: TLabel
+    Left = 16
+    Height = 16
+    Top = 23
+    Width = 66
+    Caption = 'User name : '
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 16
+    Height = 16
+    Top = 55
+    Width = 60
+    Caption = 'Password : '
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 16
+    Height = 16
+    Top = 93
+    Width = 70
+    Caption = 'Mail server :  '
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 232
+    Height = 16
+    Top = 127
+    Width = 66
+    Caption = 'SMTP Port : '
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 16
+    Height = 16
+    Top = 127
+    Width = 75
+    Caption = 'Wait second:  '
+    ParentColor = False
+  end
+  object Label6: TLabel
+    Left = 16
+    Height = 16
+    Top = 159
+    Width = 59
+    Caption = 'Mail from :'
+    ParentColor = False
+  end
+  object Edit1: TEdit
+    Left = 136
+    Height = 23
+    Top = 16
+    Width = 256
+    TabOrder = 0
+  end
+  object Edit2: TEdit
+    Left = 136
+    Height = 23
+    Top = 48
+    Width = 256
+    EchoMode = emPassword
+    PasswordChar = '*'
+    TabOrder = 1
+  end
+  object Edit3: TEdit
+    Left = 136
+    Height = 23
+    Top = 86
+    Width = 256
+    TabOrder = 2
+  end
+  object Edit4: TEdit
+    Left = 344
+    Height = 23
+    Top = 120
+    Width = 48
+    TabOrder = 3
+  end
+  object Button1: TButton
+    Left = 136
+    Height = 25
+    Top = 184
+    Width = 78
+    BorderSpacing.InnerBorder = 4
+    Caption = 'Save'
+    OnClick = Button1Click
+    TabOrder = 4
+  end
+  object Button2: TButton
+    Left = 317
+    Height = 25
+    Top = 184
+    Width = 75
+    BorderSpacing.InnerBorder = 4
+    Caption = 'Cancel'
+    OnClick = Button2Click
+    TabOrder = 5
+  end
+  object Edit5: TEdit
+    Left = 136
+    Height = 23
+    Top = 120
+    Width = 80
+    TabOrder = 6
+  end
+  object Edit6: TEdit
+    Left = 136
+    Height = 23
+    Top = 152
+    Width = 256
+    TabOrder = 7
+  end
+end

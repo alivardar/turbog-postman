@@ -1,0 +1,25 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('Tmainform','FORMDATA',[
+  'TPF0'#9'Tmainform'#8'mainform'#4'Left'#3'g'#1#6'Height'#3','#1#3'Top'#3#6#1#5
+  +'Width'#3#144#1#18'HorzScrollBar.Page'#3#143#1#18'VertScrollBar.Page'#3#20#1
+  +#13'ActiveControl'#7#5'Memo1'#7'Caption'#6#7'Postman'#4'Menu'#7#9'MainMenu1'
+  +#0#10'TStatusBar'#10'StatusBar1'#6'Height'#2#19#3'Top'#3#2#1#5'Width'#3#144#1
+  +#6'Panels'#14#0#0#0#8'TToolBar'#8'ToolBar1'#6'Height'#2#26#5'Width'#3#144#1#7
+  +'Caption'#6#8'ToolBar1'#8'TabOrder'#2#0#0#11'TToolButton'#11'ToolButton1'#4
+  +'Left'#2#1#3'Top'#2#2#7'Caption'#6#11'ToolButton1'#7'OnClick'#7#16'ToolButto'
+  +'n1Click'#0#0#11'TToolButton'#11'ToolButton2'#4'Left'#2#24#3'Top'#2#2#7'Capt'
+  +'ion'#6#11'ToolButton2'#0#0#11'TToolButton'#11'ToolButton3'#4'Left'#2'/'#3'T'
+  +'op'#2#2#7'Caption'#6#11'ToolButton3'#0#0#11'TToolButton'#11'ToolButton4'#4
+  +'Left'#2'F'#3'Top'#2#2#5'Width'#2#23#7'Caption'#6#11'ToolButton4'#5'Style'#7
+  +#12'tbsSeparator'#0#0#11'TToolButton'#11'ToolButton5'#4'Left'#2']'#3'Top'#2#2
+  +#7'Caption'#6#11'ToolButton5'#0#0#0#5'TMemo'#5'Memo1'#6'Height'#3#232#0#3'To'
+  +'p'#2#26#5'Width'#3#144#1#5'Align'#7#8'alClient'#13'Lines.Strings'#1#6#5'Mem'
+  +'o1'#0#8'TabOrder'#2#1#0#0#9'TMainMenu'#9'MainMenu1'#4'left'#2'@'#3'top'#2#8
+  +#0#9'TMenuItem'#9'MenuItem1'#7'Caption'#6#4'File'#0#9'TMenuItem'#9'MenuItem4'
+  +#7'Caption'#6#4'Exit'#0#0#0#9'TMenuItem'#9'MenuItem2'#7'Caption'#6#7'Options'
+  +#0#9'TMenuItem'#9'MenuItem5'#7'Caption'#6#13'SMTP Settings'#0#0#0#9'TMenuIte'
+  +'m'#9'MenuItem3'#7'Caption'#6#4'Help'#0#9'TMenuItem'#9'MenuItem6'#7'Caption'
+  +#6#5'About'#0#0#0#0#10'TImageList'#10'ImageList1'#4'left'#2'`'#3'top'#2#8#0#0
+  +#0
+]);

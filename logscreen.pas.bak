@@ -1,0 +1,47 @@
+unit logscreen;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, Buttons,
+  StdCtrls;
+
+type
+
+  { Tlogscreen }
+
+  Tlogscreen = class(TForm)
+    Button1: TButton;
+    Memo1: TMemo;
+    procedure Button1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end; 
+
+var
+  logscreenunit: Tlogscreen;
+
+implementation
+
+{ Tlogscreen }
+
+procedure Tlogscreen.FormShow(Sender: TObject);
+begin
+  Memo1.Lines.LoadFromFile('logs/log');
+end;
+
+procedure Tlogscreen.Button1Click(Sender: TObject);
+begin
+    Close;
+end;
+
+initialization
+  {$I logscreen.lrs}
+
+end.
+

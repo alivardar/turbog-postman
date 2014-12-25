@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <ProjectOptions>
+    <PathDelim Value="/"/>
+    <Version Value="5"/>
+    <General>
+      <MainUnit Value="0"/>
+      <IconPath Value="./"/>
+      <TargetFileExt Value=""/>
+      <Title Value="Postman "/>
+      <ActiveEditorIndexAtStart Value="0"/>
+    </General>
+    <VersionInfo>
+      <ProjectVersion Value=""/>
+    </VersionInfo>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IgnoreBinaries Value="False"/>
+      <IncludeFileFilter Value="*.(pas|pp|inc|lfm|lpr|lrs|lpi|lpk|sh|xml)"/>
+      <ExcludeFileFilter Value="*.(bak|ppu|ppw|o|so);*~;backup"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+        <LaunchingApplication PathPlusParams="/usr/X11R6/bin/xterm -T 'Lazarus Run Output' -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="2">
+      <Item1>
+        <PackageName Value="LCL"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="FCL"/>
+        <MinVersion Major="1" Valid="True"/>
+      </Item2>
+    </RequiredPackages>
+    <Units Count="17">
+      <Unit0>
+        <Filename Value="postman.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="postman"/>
+        <CursorPos X="1" Y="18"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="1"/>
+        <UsageCount Value="63"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="unit1.pas"/>
+        <ComponentName Value="mainform"/>
+        <IsPartOfProject Value="True"/>
+        <ResourceFilename Value="unit1.lrs"/>
+        <UnitName Value="unit1"/>
+        <CursorPos X="38" Y="154"/>
+        <TopLine Value="147"/>
+        <EditorIndex Value="0"/>
+        <UsageCount Value="63"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="unit1.lrs"/>
+        <CursorPos X="7" Y="1"/>
+        <TopLine Value="1"/>
+        <UsageCount Value="7"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="../lnet/doc/en/doc_lnet.xml"/>
+        <CursorPos X="1" Y="1"/>
+        <TopLine Value="1"/>
+        <UsageCount Value="7"/>
+        <SyntaxHighlighter Value="XML"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="../lnet/lazaruspackage/lnetbase.pas"/>
+        <UnitName Value="lnetbase"/>
+        <CursorPos X="3" Y="10"/>
+        <TopLine Value="1"/>
+        <UsageCount Value="7"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="mimepart.pas"/>
+        <UnitName Value="mimepart"/>
+        <CursorPos X="3" Y="65"/>
+        <TopLine Value="48"/>
+        <UsageCount Value="7"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="synachar.pas"/>
+        <UnitName Value="synachar"/>
+        <CursorPos X="9" Y="74"/>
+        <TopLine Value="57"/>
+        <UsageCount Value="7"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="smtpsend.pas"/>
+        <UnitName Value="smtpsend"/>
+        <CursorPos X="13" Y="62"/>
+        <TopLine Value="39"/>
+        <UsageCount Value="9"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="logscreen.pas"/>
+        <ComponentName Value="logscreen"/>
+        <IsPartOfProject Value="True"/>
+        <ResourceFilename Value="logscreen.lrs"/>
+        <UnitName Value="logscreen"/>
+        <CursorPos X="16" Y="47"/>
+        <TopLine Value="7"/>
+        <EditorIndex Value="4"/>
+        <UsageCount Value="58"/>
+        <Loaded Value="True"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="usr/lib/lazarus/lcl/lresources.pp"/>
+        <UnitName Value="LResources"/>
+        <CursorPos X="1" Y="3264"/>
+        <TopLine Value="3253"/>
+        <UsageCount Value="8"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="smtpset.pas"/>
+        <ComponentName Value="smtpsettings"/>
+        <IsPartOfProject Value="True"/>
+        <ResourceFilename Value="smtpset.lrs"/>
+        <UnitName Value="smtpset"/>
+        <CursorPos X="41" Y="23"/>
+        <TopLine Value="16"/>
+        <EditorIndex Value="3"/>
+        <UsageCount Value="47"/>
+        <Loaded Value="True"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="icons/aboutscreen.pas"/>
+        <ComponentName Value="about"/>
+        <IsPartOfProject Value="True"/>
+        <ResourceFilename Value="icons/aboutscreen.lrs"/>
+        <UnitName Value="aboutscreen"/>
+        <CursorPos X="22" Y="36"/>
+        <TopLine Value="11"/>
+        <UsageCount Value="36"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="aboutscreen.pas"/>
+        <ComponentName Value="about"/>
+        <HasResources Value="True"/>
+        <ResourceFilename Value="aboutscreen.lrs"/>
+        <UnitName Value="aboutscreen"/>
+        <CursorPos X="20" Y="25"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="5"/>
+        <UsageCount Value="12"/>
+        <Loaded Value="True"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="usr/lib/lazarus/lcl/interfaces/gtk/gtkobject.inc"/>
+        <CursorPos X="22" Y="1778"/>
+        <TopLine Value="1757"/>
+        <UsageCount Value="10"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="synsock.pas"/>
+        <UnitName Value="synsock"/>
+        <CursorPos X="3" Y="56"/>
+        <TopLine Value="28"/>
+        <UsageCount Value="10"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="/usr/lib/lazarus/lcl/interfaces/gtk/gtk1memostrings.inc"/>
+        <CursorPos X="1" Y="63"/>
+        <TopLine Value="49"/>
+        <UsageCount Value="10"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="/usr/lib/lazarus/lcl/include/application.inc"/>
+        <CursorPos X="1" Y="502"/>
+        <TopLine Value="485"/>
+        <EditorIndex Value="2"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit16>
+    </Units>
+    <JumpHistory Count="0" HistoryIndex="-1"/>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="5"/>
+    <Target>
+      <Filename Value="postman"/>
+    </Target>
+    <Parsing>
+      <SyntaxOptions>
+        <TPCompatible Value="True"/>
+        <DelphiCompat Value="True"/>
+      </SyntaxOptions>
+    </Parsing>
+    <CodeGeneration>
+      <Checks>
+        <IOChecks Value="True"/>
+        <RangeChecks Value="True"/>
+        <OverflowChecks Value="True"/>
+        <StackChecks Value="True"/>
+      </Checks>
+      <TargetProcessor Value="3"/>
+      <TargetCPU Value="i386"/>
+      <Optimizations>
+        <OptimizationLevel Value="2"/>
+      </Optimizations>
+    </CodeGeneration>
+    <Linking>
+      <Debugging>
+        <StripSymbols Value="True"/>
+      </Debugging>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+    <Other>
+      <WriteFPCLogo Value="False"/>
+      <CompilerPath Value="$(CompPath)"/>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="2">
+      <Item1>
+        <Name Value="ECodetoolError"/>
+      </Item1>
+      <Item2>
+        <Name Value="EFOpenError"/>
+      </Item2>
+    </Exceptions>
+  </Debugging>
+</CONFIG>
