@@ -9,5 +9,5 @@ Lazarus : http://lazarus.freepascal.org Synapse : http://www.ararat.cz/synapse/
 
 Synapse already included in source code directory.
 
-![Alt text](http://www.turbog.com/wp-content/uploads/2012/04/tpostman11.png "title")
+![Alt text](http://www.md5m.com/wp-content/uploads/2012/04/tpostman11.png "title")
 
